@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ZJNoticeDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4SX-3h-jVc">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fwv-sF-QTP">
+                                        <rect key="frame" x="10" y="100" width="580" height="29"/>
+                                        <segments>
+                                            <segment title="文字"/>
+                                            <segment title="等待"/>
+                                            <segment title="等待带文字" width="95.833333333333329"/>
+                                            <segment title="成功"/>
+                                            <segment title="失败"/>
+                                            <segment title="提醒"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RHp-9T-l0r">
+                                        <rect key="frame" x="10" y="148" width="580" height="29"/>
+                                        <segments>
+                                            <segment title="不自动消失"/>
+                                            <segment title="自动消失"/>
+                                            <segment title="自动消失后回调" width="192.66666666666666"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSk-Bq-d0Y">
+                                        <rect key="frame" x="20" y="200" width="180" height="30"/>
+                                        <color key="backgroundColor" red="0.99222695709999997" green="0.42391064070000001" blue="0.12533598039999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="iOD-75-cVp"/>
+                                        </constraints>
+                                        <state key="normal" title="清除等待">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="iOD-75-cVp"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="clearWaitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="daO-QG-UyO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8R-Xc-cu4">
+                                        <rect key="frame" x="210" y="200" width="180" height="30"/>
+                                        <color key="backgroundColor" red="0.99222695709999997" green="0.42391064070000001" blue="0.12533598039999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="清除全部">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clearAllAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sk9-0W-YwN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KjS-Vb-1nW">
+                                        <rect key="frame" x="400" y="200" width="180" height="30"/>
+                                        <color key="backgroundColor" red="0.99222695709999997" green="0.42391064070000001" blue="0.12533598039999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="显示">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showEffectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kok-aB-VHr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RHp-9T-l0r" secondAttribute="trailing" constant="10" id="2d9-Jf-EOR"/>
+                                    <constraint firstItem="O8R-Xc-cu4" firstAttribute="centerY" secondItem="BSk-Bq-d0Y" secondAttribute="centerY" id="7Zc-I2-ifU"/>
+                                    <constraint firstAttribute="trailing" secondItem="fwv-sF-QTP" secondAttribute="trailing" constant="10" id="BY4-m1-qJP"/>
+                                    <constraint firstItem="fwv-sF-QTP" firstAttribute="leading" secondItem="4SX-3h-jVc" secondAttribute="leading" constant="10" id="Ldc-EV-AEW"/>
+                                    <constraint firstItem="BSk-Bq-d0Y" firstAttribute="width" secondItem="O8R-Xc-cu4" secondAttribute="width" id="Nlt-Rj-jaL"/>
+                                    <constraint firstItem="BSk-Bq-d0Y" firstAttribute="leading" secondItem="4SX-3h-jVc" secondAttribute="leading" constant="20" id="Pak-qN-HQS"/>
+                                    <constraint firstItem="O8R-Xc-cu4" firstAttribute="width" secondItem="KjS-Vb-1nW" secondAttribute="width" id="R5T-fB-XWf"/>
+                                    <constraint firstItem="KjS-Vb-1nW" firstAttribute="leading" secondItem="O8R-Xc-cu4" secondAttribute="trailing" constant="10" id="Wgw-lR-rtJ"/>
+                                    <constraint firstItem="RHp-9T-l0r" firstAttribute="top" secondItem="fwv-sF-QTP" secondAttribute="bottom" constant="20" id="Y5A-Lr-rXe"/>
+                                    <constraint firstItem="fwv-sF-QTP" firstAttribute="top" secondItem="4SX-3h-jVc" secondAttribute="top" constant="100" id="YYu-3o-FjJ"/>
+                                    <constraint firstItem="RHp-9T-l0r" firstAttribute="leading" secondItem="4SX-3h-jVc" secondAttribute="leading" constant="10" id="ZTy-dq-odM"/>
+                                    <constraint firstAttribute="trailing" secondItem="KjS-Vb-1nW" secondAttribute="trailing" constant="20" id="g55-Rx-fWB"/>
+                                    <constraint firstItem="BSk-Bq-d0Y" firstAttribute="top" secondItem="RHp-9T-l0r" secondAttribute="bottom" constant="24" id="hxH-2p-Khb"/>
+                                    <constraint firstItem="O8R-Xc-cu4" firstAttribute="leading" secondItem="BSk-Bq-d0Y" secondAttribute="trailing" constant="10" id="rkC-ml-b17"/>
+                                    <constraint firstItem="KjS-Vb-1nW" firstAttribute="centerY" secondItem="O8R-Xc-cu4" secondAttribute="centerY" id="trV-1f-0cm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4SX-3h-jVc" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="1Dw-VG-e3B"/>
+                            <constraint firstItem="4SX-3h-jVc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="J6X-rI-XRh"/>
+                            <constraint firstItem="4SX-3h-jVc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lfi-S7-H53"/>
+                            <constraint firstItem="4SX-3h-jVc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Lht-2M-cfb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="segmentedEffect" destination="RHp-9T-l0r" id="M5a-VU-Sf3"/>
+                        <outlet property="segmentedType" destination="fwv-sF-QTP" id="Nxa-jA-N1t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="288" y="289"/>
+        </scene>
+    </scenes>
+</document>
