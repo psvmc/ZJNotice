@@ -12,7 +12,7 @@
 		3F7AB8E21BC73BDB001CFEB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7AB8E01BC73BDB001CFEB9 /* Main.storyboard */; };
 		3F7AB8E41BC73BDB001CFEB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7AB8E31BC73BDB001CFEB9 /* Assets.xcassets */; };
 		3F7AB8E71BC73BDB001CFEB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7AB8E51BC73BDB001CFEB9 /* LaunchScreen.storyboard */; };
-		3F7AB8F11BC73C23001CFEB9 /* ZJNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7AB8F01BC73C23001CFEB9 /* ZJNotice.swift */; settings = {ASSET_TAGS = (); }; };
+		3F7AB8F11BC73C23001CFEB9 /* ZJNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7AB8F01BC73C23001CFEB9 /* ZJNotice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -267,7 +267,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ZJNoticeDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.psvmc.ZJNoticeDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -279,7 +279,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ZJNoticeDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.psvmc.ZJNoticeDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -305,6 +305,7 @@
 				3F7AB8ED1BC73BDB001CFEB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

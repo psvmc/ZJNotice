@@ -306,7 +306,7 @@ class ZJNotice: NSObject {
         notices.append(mainView)
         
         if autoClear {
-            NSTimer.scheduledTimerWithTimeInterval(time, target: self, selector: "hideNotice:", userInfo: mainView, repeats: false)
+            NSTimer.scheduledTimerWithTimeInterval(time, target: self, selector: #selector(ZJNotice.hideNotice(_:)), userInfo: mainView, repeats: false)
         }
     }
     
