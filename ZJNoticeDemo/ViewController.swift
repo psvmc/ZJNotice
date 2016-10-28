@@ -22,15 +22,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func clearWaitAction(sender: AnyObject) {
+    @IBAction func clearWaitAction(_ sender: AnyObject) {
         self.clearWaitNotice();
     }
     
-    @IBAction func clearAllAction(sender: AnyObject) {
+    @IBAction func clearAllAction(_ sender: AnyObject) {
         self.clearAllNotice();
     }
     
-    @IBAction func showEffectAction(sender: AnyObject) {
+    @IBAction func showEffectAction(_ sender: AnyObject) {
         let typeIndex:Int = segmentedType.selectedSegmentIndex;
         let effectIndex:Int = segmentedEffect.selectedSegmentIndex;
         let result = (typeIndex,effectIndex);
