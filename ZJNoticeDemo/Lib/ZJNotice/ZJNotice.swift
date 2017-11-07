@@ -198,8 +198,8 @@ class ZJNotice: NSObject {
         clear();
         
         let font = UIFont.systemFont(ofSize: 13);
-        let attrs = [NSFontAttributeName:font,NSForegroundColorAttributeName:UIColor.white];
-        let fontSize = (text as NSString).size(attributes: attrs);
+        let attrs = [NSAttributedStringKey.font:font,NSAttributedStringKey.foregroundColor:UIColor.white];
+        let fontSize = (text as NSString).size(withAttributes: attrs);
         let fontWidth = fontSize.width;
 
         let frame = CGRect(x: 0, y: 0, width: fontWidth+40, height: 100)
@@ -229,8 +229,8 @@ class ZJNotice: NSObject {
     static func showText(_ text: String,time:TimeInterval,autoClear: Bool) {
         clear()
         let font = UIFont.systemFont(ofSize: 13);
-        let attrs = [NSFontAttributeName:font,NSForegroundColorAttributeName:UIColor.white];
-        let fontSize = (text as NSString).size(attributes: attrs);
+        let attrs = [NSAttributedStringKey.font:font,NSAttributedStringKey.foregroundColor:UIColor.white];
+        let fontSize = (text as NSString).size(withAttributes: attrs);
         let fontWidth = fontSize.width;
         let fontHeight = fontSize.height;
         
@@ -261,9 +261,9 @@ class ZJNotice: NSObject {
         clear()
         
         let font = UIFont.systemFont(ofSize: 13);
-        let attrs = [NSFontAttributeName:font,NSForegroundColorAttributeName:UIColor.white];
+        let attrs = [NSAttributedStringKey.font:font,NSAttributedStringKey.foregroundColor:UIColor.white];
         
-        let fontSize = (text as NSString).size(attributes: attrs);
+        let fontSize = (text as NSString).size(withAttributes: attrs);
         
         let fontWidth = fontSize.width;
         
@@ -302,14 +302,15 @@ class ZJNotice: NSObject {
         notices.append(mainView)
         
         if autoClear {
-            Timer.scheduledTimer(timeInterval: time, target: self, selector: #selector(ZJNotice.hideNotice(_:)), userInfo: mainView, repeats: false)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
+                hideNotice(mainView)
+            }
+           
         }
     }
     
-    static func hideNotice(_ sender: Timer) {
-        if sender.userInfo is UIView {
-            (sender.userInfo! as AnyObject).removeFromSuperview()
-        }
+    static func hideNotice(_ view: UIView) {
+        view.removeFromSuperview()
     }
     
     //下面是画图的
@@ -317,7 +318,7 @@ class ZJNotice: NSObject {
         let checkmarkShapePath = UIBezierPath()
         // 先画个圈圈
         checkmarkShapePath.move(to: CGPoint(x: 36, y: 18))
-        checkmarkShapePath.addArc(withCenter: CGPoint(x: 18, y: 18), radius: 17.5, startAngle: 0, endAngle: CGFloat(M_PI*2), clockwise: true)
+        checkmarkShapePath.addArc(withCenter: CGPoint(x: 18, y: 18), radius: 17.5, startAngle: 0, endAngle: CGFloat(Double.pi*2), clockwise: true)
         checkmarkShapePath.close()
         
         switch type {
@@ -345,7 +346,7 @@ class ZJNotice: NSObject {
             
             let checkmarkShapePath = UIBezierPath()
             checkmarkShapePath.move(to: CGPoint(x: 18, y: 27))
-            checkmarkShapePath.addArc(withCenter: CGPoint(x: 18, y: 27), radius: 1, startAngle: 0, endAngle: CGFloat(M_PI*2), clockwise: true)
+            checkmarkShapePath.addArc(withCenter: CGPoint(x: 18, y: 27), radius: 1, startAngle: 0, endAngle: CGFloat(Double.pi*2), clockwise: true)
             checkmarkShapePath.close()
             
             UIColor.white.setFill()
