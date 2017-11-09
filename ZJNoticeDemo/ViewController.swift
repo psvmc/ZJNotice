@@ -102,6 +102,17 @@ class ViewController: UIViewController {
                 self.showNoticeText("我是回调", time: 1.2);
             })
             break;
+        case (6,0):
+            self.showNoticeTextSingle("哈")
+            break;
+        case (6,1):
+            self.showNoticeTextSingle("嘿", time: 1.2)
+            break;
+        case (6,2):
+            self.showNoticeTextSingle("呵", time: 1.2, callbackBlock: {
+                self.showNoticeText("我是回调", time: 1.2);
+            })
+            break;
         default:
             break;
             

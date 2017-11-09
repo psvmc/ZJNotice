@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,25 +18,26 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4SX-3h-jVc">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fwv-sF-QTP">
-                                        <rect key="frame" x="10" y="100" width="580" height="29"/>
+                                        <rect key="frame" x="10" y="100" width="355" height="29"/>
                                         <segments>
-                                            <segment title="文字"/>
-                                            <segment title="等待"/>
-                                            <segment title="等待带文字" width="95.833333333333329"/>
+                                            <segment title="文"/>
+                                            <segment title="等"/>
+                                            <segment title="等&amp;文" width="95.833333333333329"/>
                                             <segment title="成功"/>
                                             <segment title="失败"/>
                                             <segment title="提醒"/>
+                                            <segment title="单文"/>
                                         </segments>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RHp-9T-l0r">
-                                        <rect key="frame" x="10" y="148" width="580" height="29"/>
+                                        <rect key="frame" x="10" y="148" width="355" height="29"/>
                                         <segments>
                                             <segment title="不自动消失"/>
                                             <segment title="自动消失"/>
@@ -40,45 +45,37 @@
                                         </segments>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSk-Bq-d0Y">
-                                        <rect key="frame" x="20" y="200" width="180" height="30"/>
-                                        <color key="backgroundColor" red="0.99222695709999997" green="0.42391064070000001" blue="0.12533598039999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="iOD-75-cVp"/>
-                                        </constraints>
+                                        <rect key="frame" x="20" y="200" width="105" height="30"/>
+                                        <color key="backgroundColor" red="0.99222695709999997" green="0.42391064070000001" blue="0.12533598039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="清除等待">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="iOD-75-cVp"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <action selector="clearWaitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="daO-QG-UyO"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8R-Xc-cu4">
-                                        <rect key="frame" x="210" y="200" width="180" height="30"/>
-                                        <color key="backgroundColor" red="0.99222695709999997" green="0.42391064070000001" blue="0.12533598039999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="135" y="200" width="105" height="30"/>
+                                        <color key="backgroundColor" red="0.99222695709999997" green="0.42391064070000001" blue="0.12533598039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="清除全部">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="clearAllAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sk9-0W-YwN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KjS-Vb-1nW">
-                                        <rect key="frame" x="400" y="200" width="180" height="30"/>
-                                        <color key="backgroundColor" red="0.99222695709999997" green="0.42391064070000001" blue="0.12533598039999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="250" y="200" width="105" height="30"/>
+                                        <color key="backgroundColor" red="0.99222695709999997" green="0.42391064070000001" blue="0.12533598039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="显示">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="showEffectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kok-aB-VHr"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="RHp-9T-l0r" secondAttribute="trailing" constant="10" id="2d9-Jf-EOR"/>
                                     <constraint firstItem="O8R-Xc-cu4" firstAttribute="centerY" secondItem="BSk-Bq-d0Y" secondAttribute="centerY" id="7Zc-I2-ifU"/>
@@ -98,7 +95,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4SX-3h-jVc" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="1Dw-VG-e3B"/>
                             <constraint firstItem="4SX-3h-jVc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="J6X-rI-XRh"/>

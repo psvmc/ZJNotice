@@ -122,14 +122,31 @@ extension UIViewController {
         ZJNotice.showText(text,time:0,autoClear:false)
     }
     
+    func showNoticeTextSingle(_ text: String) {
+        ZJNotice.showTextSingle(text,time:0,autoClear:false)
+    }
+    
     ///显示文本弹窗，延时关闭
     func showNoticeText(_ text: String,time:TimeInterval) {
         ZJNotice.showText(text,time:time,autoClear:true);
     }
     
+    func showNoticeTextSingle(_ text: String,time:TimeInterval) {
+        ZJNotice.showTextSingle(text,time:time,autoClear:true);
+    }
+    
     ///显示文本弹窗，延时关闭，回调事件
     func showNoticeText(_ text: String,time:TimeInterval,callbackBlock:@escaping ()->()){
         ZJNotice.showText(text,time:0,autoClear:false);
+        delay(time, closure: {
+            ()->() in
+            self.clearAllNotice();
+            callbackBlock();
+        })
+    }
+    
+    func showNoticeTextSingle(_ text: String,time:TimeInterval,callbackBlock:@escaping ()->()){
+        ZJNotice.showTextSingle(text,time:0,autoClear:false);
         delay(time, closure: {
             ()->() in
             self.clearAllNotice();
@@ -162,6 +179,8 @@ class ZJNotice: NSObject {
     static var notices = Array<UIView>()
     static let rv = UIApplication.shared.keyWindow?.subviews.first!
     static var window:UIWindow = UIApplication.shared.keyWindow!
+    static var bgColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4);
+    static var bgCornerRadius:CGFloat = 10;
     
     static func clear() {
         for i in notices {
@@ -182,8 +201,8 @@ class ZJNotice: NSObject {
         clear()
         let frame = CGRect(x: 0, y: 0, width: 78, height: 78)
         let mainView = UIView(frame: frame)
-        mainView.layer.cornerRadius = 12
-        mainView.backgroundColor = UIColor(red:0, green:0, blue:0, alpha: 0.8)
+        mainView.layer.cornerRadius = bgCornerRadius
+        mainView.backgroundColor = bgColor
         
         let ai = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
         ai.frame = CGRect(x: 21, y: 21, width: 36, height: 36)
@@ -204,8 +223,8 @@ class ZJNotice: NSObject {
 
         let frame = CGRect(x: 0, y: 0, width: fontWidth+40, height: 100)
         let mainView = UIView(frame: frame)
-        mainView.layer.cornerRadius = 12
-        mainView.backgroundColor = UIColor(red:0, green:0, blue:0, alpha: 0.8)
+        mainView.layer.cornerRadius = bgCornerRadius
+        mainView.backgroundColor = bgColor
         
         let ai = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
         ai.frame = CGRect(x: 21, y: 21, width: 36, height: 36)
@@ -234,12 +253,11 @@ class ZJNotice: NSObject {
         let fontWidth = fontSize.width;
         let fontHeight = fontSize.height;
         
-        
         let fontLinesHeight:CGFloat = CGFloat(floor(fontHeight * ceil((fontWidth / 100))));
         
         let mainView = UIView()
-        mainView.layer.cornerRadius = 12
-        mainView.backgroundColor = UIColor(red:0, green:0, blue:0, alpha: 0.8)
+        mainView.layer.cornerRadius = bgCornerRadius
+        mainView.backgroundColor = bgColor
         
         let label = UILabel()
         label.text = text
@@ -251,6 +269,29 @@ class ZJNotice: NSObject {
         
         mainView.addSubview(label)
         mainView.frame = CGRect(x: 0, y: 0, width: label.frame.width + 50 , height: fontLinesHeight + 20);
+        
+        label.center = mainView.center;
+        addView(mainView, time: time, autoClear: autoClear)
+    }
+    
+    
+    static func showTextSingle(_ text: String,time:TimeInterval,autoClear: Bool) {
+        clear()
+        let font = UIFont.systemFont(ofSize: 36);
+        let mainView = UIView()
+        mainView.layer.cornerRadius = bgCornerRadius
+        mainView.backgroundColor = bgColor
+        
+        let label = UILabel()
+        label.text = text
+        label.numberOfLines = 1
+        label.font = font;
+        label.textAlignment = NSTextAlignment.center;
+        label.textColor = UIColor.white;
+        label.frame = CGRect(x: 0, y: 0, width: 65, height: 65);
+        
+        mainView.addSubview(label)
+        mainView.frame = CGRect(x: 0, y: 0, width: label.frame.width + 10 , height: label.frame.height + 10);
         
         label.center = mainView.center;
         addView(mainView, time: time, autoClear: autoClear)
@@ -269,8 +310,8 @@ class ZJNotice: NSObject {
         
         let frame = CGRect(x: 0, y: 0, width: fontWidth+40, height: 90)
         let mainView = UIView(frame: frame)
-        mainView.layer.cornerRadius = 10
-        mainView.backgroundColor = UIColor(red:0, green:0, blue:0, alpha: 0.7)
+        mainView.layer.cornerRadius = bgCornerRadius
+        mainView.backgroundColor = bgColor
         
         var image = UIImage()
         switch type {
