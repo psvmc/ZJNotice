@@ -12,23 +12,23 @@ import UIKit
 extension UIViewController {
     
     ///延迟执行方法
-    func delay(_ delay:Double, closure:@escaping ()->()) {
+    public func delay(_ delay:Double, closure:@escaping ()->()) {
         DispatchQueue.main.asyncAfter(
             deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
     }
     
     ///显示成功弹窗，不自动关闭
-    func showNoticeSuc(_ text: String) {
+    public func showNoticeSuc(_ text: String) {
         ZJNotice.showNoticeWithText(ZJNoticeType.success, text: text,time: 0, autoClear: false);
     }
     
     ///显示成功弹窗，延时关闭
-    func showNoticeSuc(_ text: String,time:TimeInterval) {
+    public func showNoticeSuc(_ text: String,time:TimeInterval) {
         ZJNotice.showNoticeWithText(ZJNoticeType.success, text: text,time: time, autoClear: true);
     }
     
     ///显示成功弹窗，延时关闭，回调事件
-    func showNoticeSuc(_ text: String,time:TimeInterval,callbackBlock:@escaping ()->()){
+    public func showNoticeSuc(_ text: String,time:TimeInterval,callbackBlock:@escaping ()->()){
         ZJNotice.showNoticeWithText(ZJNoticeType.success, text: text,time: 0, autoClear: false);
         delay(time, closure: {
             ()->() in
@@ -38,17 +38,17 @@ extension UIViewController {
     }
     
     ///显示错误弹窗，不自动关闭
-    func showNoticeErr(_ text: String) {
+    public func showNoticeErr(_ text: String) {
         ZJNotice.showNoticeWithText(ZJNoticeType.error, text: text,time: 0, autoClear: false);
     }
     
     ///显示错误弹窗，延时关闭
-    func showNoticeErr(_ text: String,time:TimeInterval) {
+    public func showNoticeErr(_ text: String,time:TimeInterval) {
         ZJNotice.showNoticeWithText(ZJNoticeType.error, text: text, time:time,autoClear: true);
     }
     
     ///显示错误弹窗，延时关闭，回调事件
-    func showNoticeErr(_ text: String,time:TimeInterval,callbackBlock:@escaping ()->()){
+    public func showNoticeErr(_ text: String,time:TimeInterval,callbackBlock:@escaping ()->()){
         ZJNotice.showNoticeWithText(ZJNoticeType.error, text: text,time: 0, autoClear: false);
         delay(time, closure: {
             ()->() in
@@ -58,17 +58,17 @@ extension UIViewController {
     }
     
     ///显示提醒弹窗，不自动关闭
-    func showNoticeInfo(_ text: String) {
+    public func showNoticeInfo(_ text: String) {
         ZJNotice.showNoticeWithText(ZJNoticeType.info, text: text, time: 0,autoClear: false)
     }
     
     ///显示提醒弹窗，延时关闭
-    func showNoticeInfo(_ text: String,time:TimeInterval) {
+    public func showNoticeInfo(_ text: String,time:TimeInterval) {
         ZJNotice.showNoticeWithText(ZJNoticeType.info, text: text, time: time,autoClear: true)
     }
     
     ///显示提醒弹窗，延时关闭，回调事件
-    func showNoticeInfo(_ text: String,time:TimeInterval,callbackBlock:@escaping ()->()){
+    public func showNoticeInfo(_ text: String,time:TimeInterval,callbackBlock:@escaping ()->()){
         ZJNotice.showNoticeWithText(ZJNoticeType.info, text: text, time: 0,autoClear: false)
         delay(time, closure: {
             ()->() in
@@ -78,17 +78,17 @@ extension UIViewController {
     }
     
     ///显示等待弹窗，不自动关闭
-    func showNoticeWait() {
+    public func showNoticeWait() {
         ZJNotice.wait(0,autoClear: false)
     }
     
     ///显示等待弹窗，延时关闭
-    func showNoticeWait(_ time:TimeInterval){
+    public func showNoticeWait(_ time:TimeInterval){
         ZJNotice.wait(time,autoClear: true)
     }
     
     ///显示等待弹窗，延时关闭，回调事件
-    func showNoticeWait(_ time:TimeInterval,callbackBlock:@escaping ()->()){
+    public func showNoticeWait(_ time:TimeInterval,callbackBlock:@escaping ()->()){
         ZJNotice.wait(0,autoClear: false);
         delay(time, closure: {
             ()->() in
@@ -98,18 +98,18 @@ extension UIViewController {
     }
     
     ///显示等待带文本弹窗，不自动关闭
-    func showNoticeWait(text: String){
+    public func showNoticeWait(text: String){
         ZJNotice.waitWithText(text, time: 0, autoClear: false);
     }
     
     ///显示等待带文本弹窗，延时关闭
-    func showNoticeWait(_ text: String,time:TimeInterval){
+    public func showNoticeWait(_ text: String,time:TimeInterval){
         ZJNotice.waitWithText(text, time: time, autoClear: true);
     }
     
     ///显示等待带文本弹窗，延时关闭，回调事件
-    func showNoticeWait(_ text: String,time:TimeInterval,callbackBlock:@escaping ()->()){
-         ZJNotice.waitWithText(text, time: 0, autoClear: false);
+    public func showNoticeWait(_ text: String,time:TimeInterval,callbackBlock:@escaping ()->()){
+        ZJNotice.waitWithText(text, time: 0, autoClear: false);
         delay(time, closure: {
             ()->() in
             self.clearAllNotice();
@@ -118,25 +118,25 @@ extension UIViewController {
     }
     
     ///显示文本弹窗，不自动关闭
-    func showNoticeText(_ text: String) {
+    public func showNoticeText(_ text: String) {
         ZJNotice.showText(text,time:0,autoClear:false)
     }
     
-    func showNoticeTextSingle(_ text: String) {
+    public func showNoticeTextSingle(_ text: String) {
         ZJNotice.showTextSingle(text,time:0,autoClear:false)
     }
     
     ///显示文本弹窗，延时关闭
-    func showNoticeText(_ text: String,time:TimeInterval) {
+    public func showNoticeText(_ text: String,time:TimeInterval) {
         ZJNotice.showText(text,time:time,autoClear:true);
     }
     
-    func showNoticeTextSingle(_ text: String,time:TimeInterval) {
+    public func showNoticeTextSingle(_ text: String,time:TimeInterval) {
         ZJNotice.showTextSingle(text,time:time,autoClear:true);
     }
     
     ///显示文本弹窗，延时关闭，回调事件
-    func showNoticeText(_ text: String,time:TimeInterval,callbackBlock:@escaping ()->()){
+    public func showNoticeText(_ text: String,time:TimeInterval,callbackBlock:@escaping ()->()){
         ZJNotice.showText(text,time:0,autoClear:false);
         delay(time, closure: {
             ()->() in
@@ -145,7 +145,7 @@ extension UIViewController {
         })
     }
     
-    func showNoticeTextSingle(_ text: String,time:TimeInterval,callbackBlock:@escaping ()->()){
+    public func showNoticeTextSingle(_ text: String,time:TimeInterval,callbackBlock:@escaping ()->()){
         ZJNotice.showTextSingle(text,time:0,autoClear:false);
         delay(time, closure: {
             ()->() in
@@ -155,12 +155,12 @@ extension UIViewController {
     }
     
     ///清除所有弹窗
-    func clearAllNotice() {
+    public func clearAllNotice() {
         ZJNotice.clear()
     }
     
     ///清除等待弹窗
-    func clearWaitNotice(){
+    public func clearWaitNotice(){
         ZJNotice.clearWait()
     }
 }
@@ -220,7 +220,7 @@ class ZJNotice: NSObject {
         let attrs = [NSAttributedStringKey.font:font,NSAttributedStringKey.foregroundColor:UIColor.white];
         let fontSize = (text as NSString).size(withAttributes: attrs);
         let fontWidth = fontSize.width;
-
+        
         let frame = CGRect(x: 0, y: 0, width: fontWidth+40, height: 100)
         let mainView = UIView(frame: frame)
         mainView.layer.cornerRadius = bgCornerRadius
@@ -346,7 +346,7 @@ class ZJNotice: NSObject {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
                 hideNotice(mainView)
             }
-           
+            
         }
     }
     
@@ -422,7 +422,7 @@ class ZJNotice: NSObject {
             UIGraphicsEndImageContext()
             return imageOfInfo!
             
-
+            
         }
     }
     
