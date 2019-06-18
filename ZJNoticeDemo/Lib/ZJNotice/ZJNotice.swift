@@ -204,7 +204,7 @@ class ZJNotice: NSObject {
         mainView.layer.cornerRadius = bgCornerRadius
         mainView.backgroundColor = bgColor
         
-        let ai = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+        let ai = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
         ai.frame = CGRect(x: 21, y: 21, width: 36, height: 36)
         ai.startAnimating()
         mainView.addSubview(ai)
@@ -217,7 +217,7 @@ class ZJNotice: NSObject {
         clear();
         
         let font = UIFont.systemFont(ofSize: 13);
-        let attrs = [NSAttributedStringKey.font:font,NSAttributedStringKey.foregroundColor:UIColor.white];
+        let attrs = [NSAttributedString.Key.font:font,NSAttributedString.Key.foregroundColor:UIColor.white];
         let fontSize = (text as NSString).size(withAttributes: attrs);
         let fontWidth = fontSize.width;
         
@@ -226,7 +226,7 @@ class ZJNotice: NSObject {
         mainView.layer.cornerRadius = bgCornerRadius
         mainView.backgroundColor = bgColor
         
-        let ai = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+        let ai = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
         ai.frame = CGRect(x: 21, y: 21, width: 36, height: 36)
         ai.startAnimating()
         mainView.addSubview(ai)
@@ -248,7 +248,10 @@ class ZJNotice: NSObject {
     static func showText(_ text: String,time:TimeInterval,autoClear: Bool) {
         clear()
         let font = UIFont.systemFont(ofSize: 13);
-        let attrs = [NSAttributedStringKey.font:font,NSAttributedStringKey.foregroundColor:UIColor.white];
+        let attrs = [
+            NSAttributedString.Key.font:font,
+                     NSAttributedString.Key.foregroundColor:UIColor.white
+        ];
         let fontSize = (text as NSString).size(withAttributes: attrs);
         let fontWidth = fontSize.width;
         let fontHeight = fontSize.height;
@@ -302,7 +305,7 @@ class ZJNotice: NSObject {
         clear()
         
         let font = UIFont.systemFont(ofSize: 13);
-        let attrs = [NSAttributedStringKey.font:font,NSAttributedStringKey.foregroundColor:UIColor.white];
+        let attrs = [NSAttributedString.Key.font:font,NSAttributedString.Key.foregroundColor:UIColor.white];
         
         let fontSize = (text as NSString).size(withAttributes: attrs);
         
