@@ -2,6 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "ZJNotice"
   s.version      = "1.4"
   s.summary      = "A Simple AlertView"
+  s.swift_version= '4.0'
   s.description  = <<-EOS
   A Simple AlertView
   EOS
