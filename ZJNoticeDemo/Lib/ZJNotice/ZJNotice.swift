@@ -203,7 +203,6 @@ class ZJNotice: NSObject {
         let mainView = UIView(frame: frame)
         mainView.layer.cornerRadius = bgCornerRadius
         mainView.backgroundColor = bgColor
-        
         let ai = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
         ai.frame = CGRect(x: 21, y: 21, width: 36, height: 36)
         ai.startAnimating()
