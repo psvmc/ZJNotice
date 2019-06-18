@@ -13,13 +13,13 @@
 
 ## 安装方法
 
-```
-pod 'ZJNotice', '~> 1.3'
+```bash
+pod 'ZJNotice', '~> 1.4'
 ```
 
 或者
 
-```
+```bash
 pod 'ZJNotice', git: 'https://github.com/psvmc/ZJNotice.git'
 ```
 
